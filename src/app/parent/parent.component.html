@@ -1,0 +1,25 @@
+<section class="parent">
+  <h2>PARENT</h2>
+
+  <div class="giftsToGive">
+    <app-gift
+      *ngFor="let giftToGive of giftsToGive"
+      [gift]="giftToGive"
+    ></app-gift>
+  </div>
+
+  <div class="giftsReceived">
+    <app-gift
+      *ngFor="let giftReceived of giftsReceived"
+      [gift]="giftReceived"
+    ></app-gift>
+  </div>
+
+  <button (click)="onClickBtnGiveGift($event)" class="button" role="button">
+    Give child a gift
+  </button>
+
+  <h2 *ngIf="noGiftsToGive">Thank you for all the presents!</h2>
+</section>
+
+<app-child></app-child>

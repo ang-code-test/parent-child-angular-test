@@ -1,0 +1,46 @@
+@import './styles/_base.css';
+@import './styles/_buttons.css';
+
+.parent,
+.child {
+  display: flex;
+  flex-direction: column;
+  border: 3px #333 dotted;
+  margin: 16px;
+  padding: 16px;
+  background-color: antiquewhite;
+}
+
+.parent .giftsToGive,
+.child .giftsToGive {
+  flex-direction: column;
+}
+
+.child .giftsReceived app-gift .gift,
+.parent .giftsToGive app-gift .gift {
+  flex-direction: column;
+  background-color: blue;
+  color: white;
+  border: none;
+}
+
+.child .giftsToGive app-gift .gift,
+.parent .giftsReceived app-gift .gift {
+  flex-direction: column;
+  background-color: tomato;
+  color: white;
+  border: none;
+}
+
+.gift {
+  display: inline-block;
+  padding: 10px;
+  border: 1px tomato solid;
+  background-color: tomato;
+  color: white;
+  border-radius: 16px;
+  margin: 5px;
+  width: 100px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+}
