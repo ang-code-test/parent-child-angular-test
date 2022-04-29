@@ -1,11 +1,16 @@
 <section class="child">
-  <h2>CHILD</h2>
+  <h2>CHILDS GIFTS</h2>
 
   <div class="giftsReceived">
     <app-gift *ngFor="let gf of gifts" [gift]="gf"></app-gift>
   </div>
 
-  <button (click)="onClickBtn_RefusedLastGift()" class="button" role="button">
-    I don't want that!
+  <button
+    *ngIf="gifts?.length > 0"
+    (click)="onClickBtn_RefusedLastGift()"
+    class="button"
+    role="button"
+  >
+    I don't want that last gift!
   </button>
 </section>

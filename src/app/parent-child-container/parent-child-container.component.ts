@@ -20,7 +20,7 @@ import { GiftType } from '../models/gift.types';
 export class ParentChildContainerComponent implements OnInit {
   //Arrays
   childsReceivedGifts = [];
-  jokeGifts = ['Carrot', 'Empty Box'];
+  jokeGifts = ['Ugly Carrot', 'Empty Box', 'Sweaty sock'];
 
   //display flags
   showJokeBtn = true;
@@ -51,15 +51,16 @@ export class ParentChildContainerComponent implements OnInit {
         this.showJokeBtn = this.jokeGifts.length !== 0;
         break;
       }
+
       case 'stash': {
         console.log(
           "I'm gonna give you a gift from my secret stash! ( ...oh I need to use the service for this)"
         );
 
-        if(!this.giftStashService.giveStashGift()) {
+        if (!this.giftStashService.giveStashGift()) {
           this.showStashBtn = false;
         }
-        
+
         break;
       }
     }
