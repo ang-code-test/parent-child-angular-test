@@ -1,27 +1,16 @@
 <section class="child">
-  <h2>CHILD</h2>
-
-  <div class="giftsToGive">
-    <app-gift
-      *ngFor="let giftToGive of giftsToGive"
-      [gift]="giftToGive"
-    ></app-gift>
-  </div>
+  <h2>CHILDS GIFTS</h2>
 
   <div class="giftsReceived">
-    <app-gift
-      *ngFor="let giftReceived of giftsReceived"
-      [gift]="giftReceived"
-    ></app-gift>
+    <app-gift *ngFor="let gf of gifts" [gift]="gf"></app-gift>
   </div>
 
   <button
-    (click)="onClickBtnGiveGiftToParent($event)"
+    *ngIf="gifts?.length > 0"
+    (click)="onClickBtn_RefusedLastGift()"
     class="button"
     role="button"
   >
-    Give parent a gift
+    I don't want that last gift!
   </button>
-
-  <h2 *ngIf="flagNoGiftsToGive">Thank you for all the presents!</h2>
 </section>

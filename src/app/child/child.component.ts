@@ -1,4 +1,10 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -6,19 +12,16 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class ChildComponent {
-  constructor() {}
+  @Input()
+  gifts: Array<string> = [];
 
-  giftsToGive = ['Mug', 'Flowers'];
-  giftsReceived = [];
-  flagNoGiftsToGive = false;
+  @Output()
+  outputRefusedLastGift = new EventEmitter<boolean>();
 
-  onClickBtnGiveGiftToParent = (event) => {
-    // TODO: 
-    // 1.  Give ONE gift from "giftsToGive" with each click of the button.
-    // 2.  Then get another present from "parentsStash" in gift.service and add it to "giftsToGive".
-    // 3:  When all gifts have been depleted then set "flagNoGiftsToGive" to show message and "hide button."
-
-    console.log('CHILD:  giftsToGive', this.giftsToGive);
-    console.log('CHILD:  giftsReceived', this.giftsReceived);
+  onClickBtn_RefusedLastGift = () => {
+    console.log(`Child click "I don't want that!"`);
+    this.outputRefusedLastGift.emit(true);
   };
+
+  constructor() {}
 }
