@@ -5,26 +5,23 @@ import { Observable, Observer, of, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class GiftService {
-  gift = new Subject();
-  deliveries$: Observable<string>;
+  //TODO:  Subjects / Observables etc ?
 
   //Parents stashed gifts to give child
-  #parentStash = ['guitar', 'baseball cap', 'posters'];
+  #parentStash = ['Football', 'Lego', 'Xbox'];
 
   //Childs stashed gifts to give parent
-  #childStash = ['sweater', 'socks', 'scarf'];
+  #childStash = ['Socks', 'Chocolates', 'Perfume'];
 
-  getParentStash = () => {
-    this.gift.next(this.#parentStash.shift());
+  giveGiftToChild = () => {
+    //TODO: implement
+    console.log('#parentStash', this.#parentStash);
   };
 
-  getChildStash = () => {
-    this.gift.next(this.#childStash.shift());
+  giveGiftToParent = () => {
+    //TODO: implement
+    console.log('#childStash', this.#childStash);
   };
 
-  mockOnlineShopDelivery = () => {};
-
-  constructor() {
-    this.deliveries$ = new Observable(this.gift.subscribe);
-  }
+  constructor() {}
 }

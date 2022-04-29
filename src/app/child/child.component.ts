@@ -8,13 +8,15 @@ import { Component, ViewEncapsulation } from '@angular/core';
 export class ChildComponent {
   constructor() {}
 
-  giftsToGive = ['Socks', 'Chocolates', 'Perfume'];
+  giftsToGive = ['Mug', 'Flowers'];
   giftsReceived = [];
   flagNoGiftsToGive = false;
 
-  onClickBtnGiveGift = (event) => {
-    //TODO: This is broken !!!
-    this.giftsReceived.push(this.giftsToGive.pop());
+  onClickBtnGiveGiftToParent = (event) => {
+    // TODO: 
+    // 1.  Give ONE gift from "giftsToGive" with each click of the button.
+    // 2.  Then get another present from "parentsStash" in gift.service and add it to "giftsToGive".
+    // 3:  When all gifts have been depleted then set "flagNoGiftsToGive" to show message and "hide button."
 
     console.log('CHILD:  giftsToGive', this.giftsToGive);
     console.log('CHILD:  giftsReceived', this.giftsReceived);

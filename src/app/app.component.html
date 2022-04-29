@@ -2,11 +2,18 @@
   <div class="test">
     <app-parent></app-parent>
   </div>
-  <div class="objectives">
-    <h2>Work from top to bottom</h2>
-    <ul>
+  <div class="info">
+    <h2>Objectives:</h2>
+    <ul class="objectives">
       <li *ngFor="let o of objectives">
         {{ o }}
+      </li>
+    </ul>
+
+    <h2>Tips:</h2>
+    <ul class="tips">
+      <li *ngFor="let t of tips">
+        {{ t }}
       </li>
     </ul>
   </div>

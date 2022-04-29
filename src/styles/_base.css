@@ -3,19 +3,31 @@ h2 {
   text-align: center;
   color: #333;
 }
+
 .wrapper {
   display: grid;
   grid-template-columns: 50% 50%;
 }
 
-.objectives {
+.info h2 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 12px;
 }
 
 .objectives li {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: lightcyan;
   padding: 10px;
   margin: 20px;
+  font-size: 14px;
+}
+
+.tips li {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: pink;
+  padding: 10px;
+  margin: 20px;
+  font-size: 14px;
 }
 
 .test {

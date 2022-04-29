@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { GiftService } from '../services/gift.service';
 
 @Component({
@@ -6,30 +6,24 @@ import { GiftService } from '../services/gift.service';
   templateUrl: './parent.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class ParentComponent implements OnInit, OnDestroy {
+export class ParentComponent implements OnInit {
   constructor(private giftService: GiftService) {}
 
-  giftsToGive = ['Football', 'Lego', 'Xbox'];
+  giftsToGive = ['Trainset', 'Piano', 'Telescope'];
   giftsReceived = [];
   noGiftsToGive = false;
 
-  #subscriptions = [];
+  ngOnInit() {}
 
-  ngOnInit() {
-    this.#subscriptions.push(
-      this.giftService.deliveries$.subscribe((delivery) => {
-        this.giftsToGive.push(delivery);
-      })
-    );
-  }
+  onClickBtnGiveGiftToChild = (event) => {
+    // TODO:
+    // 1.  Give ONE gift from "giftsToGive" with each click of the button.
+    // 2.  Then get another present from "parentsStash" in gift.service and add it to "giftsToGive".
+    // 3:  When all gifts have been depleted then set "flagNoGiftsToGive" to show message and "hide button."
 
-  onClickBtnGiveGift = (event) => {
-    //TODO: This is broken !!!
-    this.giftsReceived.push(this.giftsToGive.pop());
-
-    console.log('CHILD:  giftsToGive', this.giftsToGive);
-    console.log('CHILD:  giftsReceived', this.giftsReceived);
+    console.log('PARENT:  giftsToGive', this.giftsToGive);
+    console.log('PARENT:  giftsReceived', this.giftsReceived);
   };
 
-  ngOnDestroy = () => this.#subscriptions.forEach((s) => s.unsubscribe());
+  //Tidy up subscriptions?
 }
