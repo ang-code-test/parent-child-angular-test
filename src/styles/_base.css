@@ -14,20 +14,20 @@ h2 {
   line-height: 12px;
 }
 
+.info p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
 .objectives li {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: lightcyan;
   padding: 10px;
-  margin: 20px;
+  margin: 2px;
   font-size: 14px;
-}
-
-.tips li {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: pink;
-  padding: 10px;
-  margin: 20px;
-  font-size: 14px;
+  list-style: none;
 }
 
 .test {

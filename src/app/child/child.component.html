@@ -1,27 +1,11 @@
 <section class="child">
   <h2>CHILD</h2>
 
-  <div class="giftsToGive">
-    <app-gift
-      *ngFor="let giftToGive of giftsToGive"
-      [gift]="giftToGive"
-    ></app-gift>
-  </div>
-
   <div class="giftsReceived">
-    <app-gift
-      *ngFor="let giftReceived of giftsReceived"
-      [gift]="giftReceived"
-    ></app-gift>
+    <app-gift *ngFor="let gf of gifts" [gift]="gf"></app-gift>
   </div>
 
-  <button
-    (click)="onClickBtnGiveGiftToParent($event)"
-    class="button"
-    role="button"
-  >
-    Give parent a gift
+  <button (click)="onClickBtn_RefusedLastGift()" class="button" role="button">
+    I don't want that!
   </button>
-
-  <h2 *ngIf="flagNoGiftsToGive">Thank you for all the presents!</h2>
 </section>

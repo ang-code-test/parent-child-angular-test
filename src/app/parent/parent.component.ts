@@ -1,5 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { GiftService } from '../services/gift.service';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
+
+import { GiftType } from '../models/gift.types';
 
 @Component({
   selector: 'app-parent',
@@ -7,23 +15,23 @@ import { GiftService } from '../services/gift.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class ParentComponent implements OnInit {
-  constructor(private giftService: GiftService) {}
+  showBtn_stash = true;
+  showBtn_joke = true;
 
-  giftsToGive = ['Trainset', 'Piano', 'Telescope'];
-  giftsReceived = [];
-  noGiftsToGive = false;
+  @Input()
+  jokeGifts: Array<string>;
+
+  @Input()
+  showJokeBtn: Boolean;
+
+  @Input()
+  showStashBtn: Boolean;
+
+  @Output()
+  outputGiveChildGift: EventEmitter<GiftType> = new EventEmitter();
 
   ngOnInit() {}
 
-  onClickBtnGiveGiftToChild = (event) => {
-    // TODO:
-    // 1.  Give ONE gift from "giftsToGive" with each click of the button.
-    // 2.  Then get another present from "parentsStash" in gift.service and add it to "giftsToGive".
-    // 3:  When all gifts have been depleted then set "flagNoGiftsToGive" to show message and "hide button."
-
-    console.log('PARENT:  giftsToGive', this.giftsToGive);
-    console.log('PARENT:  giftsReceived', this.giftsReceived);
-  };
-
-  //Tidy up subscriptions?
+  onClickBtn_Give = (giftType: GiftType) =>
+    this.outputGiveChildGift.emit(giftType);
 }

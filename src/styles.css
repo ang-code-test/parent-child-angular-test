@@ -11,23 +11,10 @@
   background-color: antiquewhite;
 }
 
-.parent .giftsToGive,
-.child .giftsToGive {
-  flex-direction: column;
-}
-
 .child .giftsReceived app-gift .gift,
 .parent .giftsToGive app-gift .gift {
   flex-direction: column;
   background-color: blue;
-  color: white;
-  border: none;
-}
-
-.child .giftsToGive app-gift .gift,
-.parent .giftsReceived app-gift .gift {
-  flex-direction: column;
-  background-color: tomato;
   color: white;
   border: none;
 }
@@ -44,3 +31,9 @@
   text-align: center;
   font-family: 'JetBrains Mono', monospace;
 }
+
+/* .giftRefused {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+} */
