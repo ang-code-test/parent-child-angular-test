@@ -1,21 +1,11 @@
 <section class="parent">
   <h2>PARENT</h2>
 
-  <button
-    *ngIf="showJokeBtn"
-    (click)="onClickBtn_Give('joke')"
-    class="button"
-    role="button"
-  >
+  <button (click)="onClickBtn_Give('joke')" class="button" role="button">
     Give joke gift! (ha ha)
   </button>
 
-  <button
-    *ngIf="showStashBtn"
-    (click)="onClickBtn_Give('stash')"
-    class="button"
-    role="button"
-  >
+  <button (click)="onClickBtn_Give('stash')" class="button" role="button">
     Give gift from stash!
   </button>
 </section>

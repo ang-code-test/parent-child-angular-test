@@ -6,15 +6,10 @@ import { GiftType } from '../models/gift.types';
 @Component({
   selector: 'app-parent-child-container',
   template: `
-            <app-parent 
-                (outputGiveChildGift)="onGiveChildGift($event)"
-                [showJokeBtn]="showJokeBtn"
-                [showStashBtn]="showStashBtn">
-            </app-parent>
+            <app-parent></app-parent>
             
             <app-child 
-                  [gifts]="childsReceivedGifts" 
-                  (outputRefusedLastGift)="onRefusedLastGift($event)">
+              [gifts]="childsReceivedGifts">
             </app-child>`,
 })
 export class ParentChildContainerComponent implements OnInit {
@@ -28,38 +23,19 @@ export class ParentChildContainerComponent implements OnInit {
 
   constructor(private giftStashService: GiftStashService) {}
 
-  ngOnInit() {
-    /**
-     * TODO:
-     *
-     * Listen for incoming gifts from stash service
-     * ...and add them to childsReceivedGifts[]
-     */
-
-    this.giftStashService.stash$.subscribe((gift) => {
-      this.childsReceivedGifts.push(gift);
-    });
-  }
+  ngOnInit() {}
 
   onGiveChildGift = (giftType: GiftType) => {
     switch (giftType) {
       case 'joke': {
         console.log("I'm gonna give you a joke gift, I'm so funny :) ");
-        this.childsReceivedGifts = this.childsReceivedGifts.concat(
-          this.jokeGifts.shift()
-        );
-        this.showJokeBtn = this.jokeGifts.length !== 0;
+
+        //this.showJokeBtn = this.jokeGifts.length !== 0;
         break;
       }
 
       case 'stash': {
-        console.log(
-          "I'm gonna give you a gift from my secret stash! ( ...oh I need to use the service for this)"
-        );
-
-        if (!this.giftStashService.giveStashGift()) {
-          this.showStashBtn = false;
-        }
+        console.log('Gifting from my secret stash! ( ...needs service method)');
 
         break;
       }
@@ -72,7 +48,9 @@ export class ParentChildContainerComponent implements OnInit {
      *
      * Remove last gift from array
      */
-    const giftToRemove = this.childsReceivedGifts.pop();
+
+    const giftToRemove =
+      'placeholder - NEED TO GET CORRECT GIFT AND UPDATE ARRAYS';
     console.log('Unwanted gift to remove', giftToRemove);
   };
 }
